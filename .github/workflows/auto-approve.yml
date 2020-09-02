@@ -1,0 +1,10 @@
+on: pull_request
+
+jobs:
+  approve:
+    if: startsWith(github.repository, 'Homebrew/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pull Request Information
+        run: echo '${{ toJSON(github.event.pull_request) }}'
